@@ -27,6 +27,8 @@ public class ProjectSecurityConfig {
         http.csrf().ignoringRequestMatchers("/saveMsg").ignoringRequestMatchers("/public/**")/*.ignoringRequestMatchers(PathRequest.toH2Console())*/.and()
                 .authorizeHttpRequests()
                 .requestMatchers("/dashboard").authenticated()
+                .requestMatchers("/displayProfile").authenticated()
+                .requestMatchers("/updateProfile").authenticated()
                 .requestMatchers("/displayMessages").hasRole("ADMIN")
                 .requestMatchers("/closeMsg/**").hasRole("ADMIN")
                 .requestMatchers("/home").permitAll()
